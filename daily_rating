@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقييم اليوم</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>قيّم يومك 🌱</h2>
+
+<div class="slider-container">
+  <label>الصحة</label><br>
+  <input type="range" min="0" max="100" value="50" id="health">
+</div>
+
+<div class="slider-container">
+  <label>الإنتاجية</label><br>
+  <input type="range" min="0" max="100" value="50" id="productivity">
+</div>
+
+<div class="slider-container">
+  <label>العلاقات</label><br>
+  <input type="range" min="0" max="100" value="50" id="relationships">
+</div>
+
+<div class="slider-container">
+  <label>المشاعر</label><br>
+  <input type="range" min="0" max="100" value="50" id="emotions">
+</div>
+
+<div class="slider-container">
+  <label>التطور</label><br>
+  <input type="range" min="0" max="100" value="50" id="growth">
+</div>
+
+<button onclick="showScene()">ازرع يومي</button>
+
+<script>
+function showScene(){
+  const health = +document.getElementById('health').value;
+  const productivity = +document.getElementById('productivity').value;
+  const relationships = +document.getElementById('relationships').value;
+  const emotions = +document.getElementById('emotions').value;
+  const growth = +document.getElementById('growth').value;
+  const avg = (health + productivity + relationships + emotions + growth)/5;
+  let plant = avg <=25 ? '🌱 بذرة' : avg<=50 ? '🌿 نبتة' : avg<=75 ? '🌸 زهرة' : '🌳 شجرة';
+  localStorage.setItem('lastPlant', plant);
+  window.location.href='daily_scene.html';
+}
+</script>
+
+</body>
+</html>
